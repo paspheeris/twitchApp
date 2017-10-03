@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Twitch Viewer</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="scripts/dom.js" type="text/javascript" defer></script>
+  <script src="scripts/api.js" type="text/javascript" defer></script>
+  <script src="scripts/index.js" type="text/javascript" defer></script>
+  <script src="scripts/events.js" type="text/javascript" defer></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="streams-div section-titles">All Streams</div>
+    <div class="streams-content content">
+      <div class="form-message"></div>
+      <form class="add-form">
+        <input class="input-field" type="text" placeholder="Stream Name">
+        <input type="submit" value="Add Stream" class="add-button">
+      </form>
+      <div class="control-buttons">
+        <button class="remove-button">Remove a stream</button>
+        <button class="remove-all-button">Remove all streams</button>
+      </div>
+    </div>
+    <div class="online-div section-titles">Online</div>
+    <div class="online-content content">
+    </div>
+    <div class="offline-div section-titles">Offline</div>
+    <div class="offline-content content">
+    </div>
+  </div>
+</body>
+
+</html>
