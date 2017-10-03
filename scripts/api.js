@@ -14,6 +14,9 @@ class TwitchApi {
       return Promise.all([
         this.getUserName('vanguardstv'),
         this.getUserName('etup'),
+        this.getUserName('shroud'),
+        this.getUserName('DreadzTV'),
+        this.getUserName('Kolento'),
         this.getUserName('trumpsc')])
         .then(() => {
           return this.update();
@@ -35,8 +38,6 @@ class TwitchApi {
         return data.json();
       })
       .then(parsedData => {
-        // console.log(parsedData);
-
         if (parsedData.users.length < 1) return Promise.reject('invalid user name');
         else {
           const obj = parsedData.users[0];
@@ -48,7 +49,6 @@ class TwitchApi {
   }
 
   update() {
-    console.log('cachedData in twitch.update', this.cachedData);
     const entries = Object.entries(this.cachedData);
     const baseEndpoint = this.baseEndPoint;
     return Promise.all(entries.map(entry => {
@@ -63,9 +63,7 @@ class TwitchApi {
           return data.json();
         })
         .then(parsedData => {
-          // console.log('parsedData', parsedData);
           this.cachedData[entry[1].name].stream = parsedData.stream;
-          // console.log('this.cachedData at end of twitch.update()', this.cachedData);
           return parsedData;
         })
         .catch(error => {
@@ -81,7 +79,6 @@ class TwitchApi {
   }
   removeUser(name) {
     delete this.cachedData[name];
-    console.log(this.cachedData);
     ls.saveStreamers(JSON.stringify(this.cachedData));
   }
   getAllCachedNames() {

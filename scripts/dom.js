@@ -9,7 +9,6 @@ const inputField = document.querySelector('.input-field');
 const formMessage = document.querySelector('.form-message');
 const addButton = document.querySelector('.add-button');
 const allBoxesNL = document.getElementsByClassName('dummy');
-// console.log(allBoxesNL);
 function createOfflineBox(streamer) {
   const div = document.createElement('div');
   div.classList.add('dummy');
